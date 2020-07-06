@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <div id="app">
+        <app-header v-on:pass="logText"></app-header>
+        <app-content v-on:increase="increaseNumber"></app-content>
+
+        <!-- 콧수염괄호 또는  v-bind:propsdata="num" -->
+        <p>{{ num }}</p>
+        
+    </div>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var appHeader = {
+            /* 하위 컴포넌트에서 상위 컴포넌트로 이벤트 발생 가능 */
+            template: '<button v-on:click="passEvent">결제하기</button>',
+            methods: {
+                passEvent: function() {
+                    this.$emit('pass');
+                }    
+            }
+        }
+
+        var appContent = {
+            template: '<button v-on:click="addNumber">값증가 {{propsdata}}</button>',
+            props: ['propsdata'],
+            methods: {
+                addNumber: function() {
+                    this.$emit('increase');
+                }
+            }
+        }
+
+        new Vue({
+            el: '#app',
+            components: {
+                'app-header': appHeader,
+                'app-content': appContent
+            },
+            methods: {
+                logText: function() {
+                    alert("결제완료");
+                },
+                increaseNumber: function() {
+                    this.num++;
+                }
+            },
+            data: {
+                num: 10
+            }
+        })
+
+    </script>
+</body>
+</html>
