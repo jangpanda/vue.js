@@ -11,6 +11,11 @@
         <!-- parent Component -->
         <app-header></app-header>
         <app-content></app-content>
+        <app-footer></app-footer> <!-- 자동완성 : app-footer 입력 후 tab -->
+    </div>
+
+    <div id="app2">
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -26,7 +31,26 @@
         });
 
         new Vue({
-            el: '#app'
+            el: '#app',
+            /* 지역 컴포넌트 등록 */
+            components: {
+                /* '컴포넌트명' : { template:'컴포넌트 내용'}, */
+                'app-footer': {
+                    template: '<footer>footer</footer>'           
+                }
+            }
+        });
+
+        // 인스턴스(Root 컴포넌트) 추가 생성
+        new Vue({
+            el: '#app2',
+            /* 지역 컴포넌트 또 등록(인스턴스가 여러개인 경우 지역 컴포넌트이므로 새로 등록 필요. 실제로는 Root가 하나인 구조이므로 참고만 할 것) */
+            components: {
+                /* '컴포넌트명' : { template:'컴포넌트 내용'}, */
+                'app-footer': {
+                    template: '<footer>footer</footer>'           
+                }
+            }
         });
 
     </script>
