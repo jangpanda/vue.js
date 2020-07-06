@@ -7,6 +7,7 @@
     <div id="app">
         <!-- v-bind로 컴포넌트로 데이터 전달하기 -->
         <app-header v-bind:propsdata="message"></app-header>
+        <app-content v-bind:propsdata="num"></app-content>
     </div>
 </head>
 <body>
@@ -18,14 +19,21 @@
             props: ['propsdata']
         }
 
+        var appContent = {
+            template: '<div>{{ propsdata }}</div>',
+            props: ['propsdata']
+        
+        }
+
         new Vue({
             el: '#app',
             components: {
-               
-                'app-header': appHeader
+                'app-header': appHeader,
+                'app-content': appContent
             },
             data: {
-                message: 'vue'
+                message: 'vue',
+                num: 10
             }
         });
 
