@@ -6,7 +6,9 @@
     <title>Hello vue.js</title>
 </head>
 <body>
+    <!-- Root -->
     <div id="app">
+        <!-- parent Component -->
         <app-header></app-header>
         <app-content></app-content>
     </div>
@@ -14,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
 
-        // 컴포넌트 등록
+        // 전역 컴포넌트 등록(실제 사용할 경우 드뭄)
         Vue.component('app-header', {
             template: '<h1>header</h1>'
         });
