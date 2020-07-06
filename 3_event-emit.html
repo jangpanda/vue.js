@@ -27,7 +27,7 @@
         }
 
         var appContent = {
-            template: '<button v-on:click="addNumber">값증가 {{propsdata}}</button>',
+            template: '<button v-on:click="addNumber" v-bind:propsdata="num">값증가 {{propsdata}}</button>',
             props: ['propsdata'],
             methods: {
                 addNumber: function() {
