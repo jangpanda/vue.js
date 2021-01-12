@@ -10,7 +10,7 @@
 
 ### 4_sibling.html
 
-### 컴포넌트 간 이벤트 처리(component.html)
+### 5_component-same-level.html
 
 
 

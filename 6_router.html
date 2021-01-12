@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-router 샘플</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <router-link to="/login">Login</router-link>
+            <!-- <a href="/login">Login</a>-->
+            <router-link to="/main">Main</router-link>
+        </div>
+        
+
+        <router-view></router-view>
+    </div>
+
+    <!-- vue.js cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <!-- vue-router.js cdn -->
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+    <script>
+
+        let LoginComponent = {
+            template : '<div>login</div>'
+        }
+
+        let MainComponent = {
+            template : '<div>main</div>'
+        }
+
+        let router = new VueRouter({
+            // 페이지 내 라우팅 정보
+            routes: [
+                {
+                    // 페이지의 url
+                    path: '/login',
+                    // url에 해당하는 컴포넌트
+                    component: LoginComponent
+                },
+                {
+                    path: '/main',
+                    component: MainComponent
+                }
+            ] 
+        });
+        
+        new Vue({
+            el: "#app",
+            router: router
+        });
+    </script>
+
+</body>
+</html>
